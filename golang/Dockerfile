@@ -6,7 +6,7 @@ COPY . .
 
 RUN CGO_ENABLED=0 go build -o /usr/src/golang-app/build/fizzbuzz
 
-FROM scratch
+FROM gcr.io/distroless/base
 
 COPY --from=builder /usr/src/golang-app/build/fizzbuzz /build/
 COPY --from=builder /usr/src/golang-app/templates/index.html /templates/
